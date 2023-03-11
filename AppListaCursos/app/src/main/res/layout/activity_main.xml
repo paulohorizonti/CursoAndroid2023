@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="8dp"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <EditText
         android:id="@+id/txtSobrenome"
@@ -78,6 +78,7 @@ android:autofillHints="name"
         android:id="@+id/btnLimpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/botao_customizado"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
         android:text="@string/txt_button_limpar"
@@ -86,6 +87,7 @@ android:autofillHints="name"
 
     <Button
         android:id="@+id/btnSalvar"
+        android:background="@drawable/botao_customizado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -97,10 +99,11 @@ android:autofillHints="name"
     <Button
         android:id="@+id/btnFinalizar"
         android:layout_width="315dp"
+
         android:layout_height="51dp"
         android:layout_marginTop="128dp"
         android:layout_marginBottom="128dp"
-        android:background="@color/corBotoes"
+        android:background="@drawable/botao_customizado"
         android:text="@string/txt_buton_finalizar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
