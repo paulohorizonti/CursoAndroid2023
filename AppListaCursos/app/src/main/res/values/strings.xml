@@ -8,4 +8,11 @@
     <string name="txt_button_limpar">Limpar</string>
     <string name="txt_button_salvar">Salvar</string>
     <string name="txt_buton_finalizar">Finalizar</string>
+    <string name="primeiroNome">Primeiro Nome</string>
+    <string name="sobrenome">Sobrenome</string>
+    <string name="curso">Nome do Curso</string>
+    <string name="telefone">Telefone de Conato</string>
+    <string name="btn_limpar">Limpar</string>
+    <string name="btn_salvar">Salvar</string>
+    <string name="btn_finalizar">FINALIZAR</string>
 </resources>
