@@ -8,8 +8,7 @@
     tools:context=".view.MainActivity">
 
 
-    <TextView
-        android:id="@+id/txtTitulo"
+    <TextView android:id="@+id/txtTitulo"
         android:layout_width="288dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
@@ -23,8 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024" />
 
-    <EditText
-        android:id="@+id/edtNome"
+    <EditText android:id="@+id/edtNome"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
@@ -38,8 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
 
-    <EditText
-        android:id="@+id/edtSobrenome"
+    <EditText  android:id="@+id/edtSobrenome"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
@@ -53,8 +50,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtNome" />
 
-    <EditText
-        android:id="@+id/edtCurso"
+    <EditText  android:id="@+id/edtCurso"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
@@ -68,8 +64,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtSobrenome" />
 
-    <EditText
-        android:id="@+id/edtTelefone"
+    <EditText android:id="@+id/edtTelefone"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_marginStart="8dp"
@@ -83,8 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtCurso" />
 
-    <Button
-        android:id="@+id/btnLimpar"
+    <Button android:id="@+id/btnLimpar"
         android:background="@drawable/botao_customizado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,8 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
 
-    <Button
-        android:id="@+id/btnSalvar"
+    <Button  android:id="@+id/btnSalvar"
         android:background="@drawable/botao_customizado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -107,8 +100,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
 
-    <Button
-        android:id="@+id/btnFinalizar"
+    <Button android:id="@+id/btnFinalizar"
         android:background="@drawable/botao_customizado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
