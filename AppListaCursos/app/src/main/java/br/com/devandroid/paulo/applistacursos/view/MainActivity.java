@@ -9,8 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+
 import br.com.devandroid.paulo.applistacursos.R;
 import br.com.devandroid.paulo.applistacursos.model.Pessoa;
+import br.com.devandroid.paulo.applistacursos.utils.MaskEditUtil;
 
 //classe que vai instaciar o xml do layout
 public class MainActivity extends AppCompatActivity {
@@ -20,14 +24,16 @@ public class MainActivity extends AppCompatActivity {
     String dadosPessoa;
 
     //componentes do layout, tendo o mesmo ID que esta no xml
-    EditText edtNome;
-    EditText edtSobrenome;
-    EditText edtCurso;
-    EditText edtTelefone;
+    TextInputEditText edtNomeAlterar;
+    TextInputEditText edtSobrenomeAlterar;
+    TextInputEditText edtCursoAlterar;
+    TextInputEditText edtTelefoneAlterar;
 
     Button btnLimpar;
     Button btnSalvar;
     Button btnFinalizar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,28 +53,32 @@ public class MainActivity extends AppCompatActivity {
         dadosPessoa = "Sobrenome: ";
         dadosPessoa += pessoa.getSobreNome();
 
-        edtNome = findViewById(R.id.edtNome);
-        edtSobrenome = findViewById(R.id.edtSobrenome);
-        edtTelefone = findViewById(R.id.edtTelefone);
-        edtCurso = findViewById(R.id.edtCurso);
+        edtNomeAlterar = (TextInputEditText)findViewById(R.id.edtNomeAlterar);
+        edtSobrenomeAlterar = (TextInputEditText)findViewById(R.id.edtSobrenomeAlterar);
+        edtTelefoneAlterar = (TextInputEditText)findViewById(R.id.edtTelefoneAlterar);
+        edtCursoAlterar =(TextInputEditText) findViewById(R.id.edtCursoAlterar);
 
         btnSalvar = findViewById(R.id.btnSalvar);
         btnLimpar = findViewById(R.id.btnLimpar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
-        edtNome.setText(pessoa.getPrimeiroNome());
-        edtSobrenome.setText(pessoa.getSobreNome());
-        edtTelefone.setText(pessoa.getTelefoneDeContato());
-        edtCurso.setText(pessoa.getCursoDesejado());
+        //APLICANDO A MASCARA
+        edtTelefoneAlterar.addTextChangedListener(MaskEditUtil.mask(edtTelefoneAlterar, MaskEditUtil.FORMAT_FONE));
+
+
+        edtNomeAlterar.setText(pessoa.getPrimeiroNome());
+        edtSobrenomeAlterar.setText(pessoa.getSobreNome());
+        edtTelefoneAlterar.setText(pessoa.getTelefoneDeContato());
+        edtCursoAlterar.setText(pessoa.getCursoDesejado());
 
 
         //metodo do botao
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                edtNome.setText("");
-                edtSobrenome.setText("");
-                edtTelefone.setText("");
-                edtCurso.setText("");
+                edtNomeAlterar.setText("");
+                edtSobrenomeAlterar.setText("");
+                edtTelefoneAlterar.setText("");
+                edtCursoAlterar.setText("");
             }
         });
 
@@ -83,10 +93,10 @@ public class MainActivity extends AppCompatActivity {
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pessoa.setPrimeiroNome(edtNome.getText().toString());
-                pessoa.setSobreNome(edtSobrenome.getText().toString());
-                pessoa.setTelefoneDeContato(edtTelefone.getText().toString());
-                pessoa.setCursoDesejado(edtCurso.getText().toString());
+                pessoa.setPrimeiroNome(edtNomeAlterar.getText().toString());
+                pessoa.setSobreNome(edtSobrenomeAlterar.getText().toString());
+                pessoa.setTelefoneDeContato(edtTelefoneAlterar.getText().toString());
+                pessoa.setCursoDesejado(edtCursoAlterar.getText().toString());
 
 
                 Toast.makeText(MainActivity.this, "Salvo : "+pessoa.toString(), Toast.LENGTH_LONG).show();

@@ -8,7 +8,8 @@
     tools:context=".view.MainActivity">
 
 
-    <TextView android:id="@+id/txtTitulo"
+    <TextView
+        android:id="@+id/txtTitulo"
         android:layout_width="288dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
@@ -22,93 +23,120 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.024" />
 
-    <EditText android:id="@+id/edtNome"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtNome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:autofillHints="Primeiro Nome"
-        android:ems="10"
-        android:hint="@string/primeiroNome"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitulo" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTitulo"
+        tools:ignore="MissingConstraints">
 
-    <EditText  android:id="@+id/edtSobrenome"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNomeAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtSobrenome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:autofillHints="Sobrenome"
-        android:ems="10"
-        android:hint="@string/sobrenome"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNome" />
+        app:layout_constraintTop_toBottomOf="@+id/edtNome"
+        tools:ignore="MissingConstraints">
 
-    <EditText  android:id="@+id/edtCurso"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtSobrenomeAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sobrenome" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtCurso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:autofillHints="Curso"
-        android:ems="10"
-        android:hint="@string/curso"
-        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSobrenome" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSobrenome"
+        tools:ignore="MissingConstraints">
 
-    <EditText android:id="@+id/edtTelefone"
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCursoAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Curso Desejado" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtTelefone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:ems="10"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="@string/telefone"
-        android:autofillHints="Telefone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtCurso" />
+        app:layout_constraintTop_toBottomOf="@+id/edtCurso"
+        tools:ignore="MissingConstraints">
 
-    <Button android:id="@+id/btnLimpar"
-        android:background="@drawable/botao_customizado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/btn_limpar"
-        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTelefoneAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Telefone" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button  android:id="@+id/btnSalvar"
-        android:background="@drawable/botao_customizado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/btn_salvar"
-        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
 
-    <Button android:id="@+id/btnFinalizar"
-        android:background="@drawable/botao_customizado"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnFinalizar"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="@string/btn_finalizar"
+        android:text="FINALIZAR"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTelefone" />
+        app:layout_constraintTop_toBottomOf="@+id/edtTelefone"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnLimpar"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="153dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="32dp"
+        android:text="LIMPAR"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
+        app:layout_constraintTop_toBottomOf="@+id/edtTelefone"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="164dp"
+        android:layout_height="49dp"
+
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="SALVAR"
+        app:layout_constraintBottom_toTopOf="@+id/btnFinalizar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtTelefone"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
