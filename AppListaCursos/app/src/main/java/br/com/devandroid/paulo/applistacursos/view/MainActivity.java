@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         pessoa.setPrimeiroNome("PAULO ROBERTO");
         pessoa.setSobreNome("NOGUEIRA");
         pessoa.setCursoDesejado("ANDRODID");
-        pessoa.setTelefoneDeContato("63-992062543");
+        pessoa.setTelefoneDeContato("63-992062525");
 
         dadosPessoa = "Primeiro Nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
