@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnFinalizar;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
         dadosPessoa = "Sobrenome: ";
         dadosPessoa += pessoa.getSobreNome();
 
-        edtNomeAlterar = (TextInputEditText)findViewById(R.id.edtNomeAlterar);
-        edtSobrenomeAlterar = (TextInputEditText)findViewById(R.id.edtSobrenomeAlterar);
-        edtTelefoneAlterar = (TextInputEditText)findViewById(R.id.edtTelefoneAlterar);
-        edtCursoAlterar =(TextInputEditText) findViewById(R.id.edtCursoAlterar);
+        edtNomeAlterar = (TextInputEditText) findViewById(R.id.edtNomeAlterar);
+        edtSobrenomeAlterar = (TextInputEditText) findViewById(R.id.edtSobrenomeAlterar);
+        edtTelefoneAlterar = (TextInputEditText) findViewById(R.id.edtTelefoneAlterar);
+        edtCursoAlterar = (TextInputEditText) findViewById(R.id.edtCursoAlterar);
 
         btnSalvar = findViewById(R.id.btnSalvar);
         btnLimpar = findViewById(R.id.btnLimpar);
@@ -99,10 +98,9 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setCursoDesejado(edtCursoAlterar.getText().toString());
 
 
-                Toast.makeText(MainActivity.this, "Salvo : "+pessoa.toString(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, "Salvo : " + pessoa.toString(), Toast.LENGTH_LONG).show();
             }
         });
-
 
 
         Log.i("POOAndroid", pessoa.toString());
