@@ -13,11 +13,14 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import br.com.devandroid.paulo.applistacursos.R;
+import br.com.devandroid.paulo.applistacursos.controller.PessoaController;
 import br.com.devandroid.paulo.applistacursos.model.Pessoa;
 import br.com.devandroid.paulo.applistacursos.utils.MaskEditUtil;
 
 //classe que vai instaciar o xml do layout
 public class MainActivity extends AppCompatActivity {
+
+    PessoaController pessoaController;
     //objeto pessoa
     Pessoa pessoa;
 
@@ -39,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        pessoaController = new PessoaController();
+
+        pessoaController.toString();
         //instanciando o objto
         pessoa = new Pessoa();
 
@@ -97,8 +104,9 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setTelefoneDeContato(edtTelefoneAlterar.getText().toString());
                 pessoa.setCursoDesejado(edtCursoAlterar.getText().toString());
 
-
                 Toast.makeText(MainActivity.this, "Salvo : " + pessoa.toString(), Toast.LENGTH_LONG).show();
+
+                pessoaController.salvar(pessoa);
             }
         });
 
