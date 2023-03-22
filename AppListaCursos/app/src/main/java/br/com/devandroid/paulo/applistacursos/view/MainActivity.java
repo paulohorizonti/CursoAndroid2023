@@ -48,23 +48,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        pessoaController = new PessoaController();
         //o nome e o modo de acesso do arquivo de preferences
         preferences = getSharedPreferences(NOME_PREFERENCES, 0);
 
         SharedPreferences.Editor listaVip = preferences.edit(); //abrindo o arquivo para edição
 
-
-        pessoaController = new PessoaController();
-
-        pessoaController.toString();
         //instanciando o objto
         pessoa = new Pessoa();
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome",""));
+        pessoa.setSobreNome(preferences.getString("sobrenome",""));
+        pessoa.setCursoDesejado(preferences.getString("curso",""));
+        pessoa.setTelefoneDeContato(preferences.getString("telefone", ""));
 
-        pessoa.setPrimeiroNome("PAULO ROBERTO");
-        pessoa.setSobreNome("NOGUEIRA");
-        pessoa.setCursoDesejado("ANDRODID");
-        pessoa.setTelefoneDeContato("63-992062525");
 
         dadosPessoa = "Primeiro Nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
@@ -80,14 +76,17 @@ public class MainActivity extends AppCompatActivity {
         btnLimpar = findViewById(R.id.btnLimpar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
+
+        edtNomeAlterar.setText(pessoa.getPrimeiroNome());
+        edtSobrenomeAlterar.setText(pessoa.getSobreNome());
+        edtCursoAlterar.setText(pessoa.getCursoDesejado());
+        edtTelefoneAlterar.setText(pessoa.getTelefoneDeContato());
+
         //APLICANDO A MASCARA
         edtTelefoneAlterar.addTextChangedListener(MaskEditUtil.mask(edtTelefoneAlterar, MaskEditUtil.FORMAT_FONE));
 
 
-        edtNomeAlterar.setText(pessoa.getPrimeiroNome());
-        edtSobrenomeAlterar.setText(pessoa.getSobreNome());
-        edtTelefoneAlterar.setText(pessoa.getTelefoneDeContato());
-        edtCursoAlterar.setText(pessoa.getCursoDesejado());
+
 
 
         //metodo do botao
