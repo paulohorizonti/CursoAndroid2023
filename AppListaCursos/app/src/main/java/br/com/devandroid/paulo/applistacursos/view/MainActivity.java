@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     //CRIAR UM OBJETO DO TIPO SHAREDPREFERENCES
     SharedPreferences preferences;
-
+    SharedPreferences.Editor listaVip;
     //contante
     public static final String NOME_PREFERENCES = "pref_listavip";
     PessoaController pessoaController;
@@ -51,8 +51,8 @@ public class MainActivity extends AppCompatActivity {
         pessoaController = new PessoaController();
         //o nome e o modo de acesso do arquivo de preferences
         preferences = getSharedPreferences(NOME_PREFERENCES, 0);
-
-        SharedPreferences.Editor listaVip = preferences.edit(); //abrindo o arquivo para edição
+       //é publico agora
+       listaVip = preferences.edit(); //abrindo o arquivo para edição
 
         //instanciando o objto
         pessoa = new Pessoa();
@@ -96,6 +96,14 @@ public class MainActivity extends AppCompatActivity {
                 edtSobrenomeAlterar.setText("");
                 edtTelefoneAlterar.setText("");
                 edtCursoAlterar.setText("");
+
+                //limpando o sharedpreferences
+
+                listaVip.clear();
+                listaVip.apply();;
+
+
+
             }
         });
 
