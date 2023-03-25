@@ -22,12 +22,7 @@ import br.com.devandroid.paulo.applistacursos.utils.MaskEditUtil;
 public class MainActivity extends AppCompatActivity {
 
 
-    //CRIAR UM OBJETO DO TIPO SHAREDPREFERENCES
-    SharedPreferences preferences;
-    SharedPreferences.Editor listaVip;
-    //contante
-    public static final String NOME_PREFERENCES = "pref_listavip";
-    PessoaController pessoaController;
+   PessoaController pessoaController;
     //objeto pessoa
     Pessoa pessoa;
 
@@ -48,18 +43,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        pessoaController = new PessoaController();
-        //o nome e o modo de acesso do arquivo de preferences
-        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
-       //é publico agora
-       listaVip = preferences.edit(); //abrindo o arquivo para edição
+
+        //controller pessoa
+        pessoaController = new PessoaController(MainActivity.this);
+
+
 
         //instanciando o objto
         pessoa = new Pessoa();
-        pessoa.setPrimeiroNome(preferences.getString("primeiroNome",""));
-        pessoa.setSobreNome(preferences.getString("sobrenome",""));
-        pessoa.setCursoDesejado(preferences.getString("curso",""));
-        pessoa.setTelefoneDeContato(preferences.getString("telefone", ""));
+
+        //agora chama o metodo para pegar a pessoa
+        pessoaController.buscar(pessoa);
 
 
         dadosPessoa = "Primeiro Nome: ";
@@ -77,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         btnFinalizar = findViewById(R.id.btnFinalizar);
 
 
+        //atribui o valor que veio no objeto pessoa aos elementos que compoe a tela
         edtNomeAlterar.setText(pessoa.getPrimeiroNome());
         edtSobrenomeAlterar.setText(pessoa.getSobreNome());
         edtCursoAlterar.setText(pessoa.getCursoDesejado());
@@ -84,10 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
         //APLICANDO A MASCARA
         edtTelefoneAlterar.addTextChangedListener(MaskEditUtil.mask(edtTelefoneAlterar, MaskEditUtil.FORMAT_FONE));
-
-
-
-
 
         //metodo do botao
         btnLimpar.setOnClickListener(new View.OnClickListener() {
@@ -97,11 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 edtTelefoneAlterar.setText("");
                 edtCursoAlterar.setText("");
 
-                //limpando o sharedpreferences
-
-                listaVip.clear();
-                listaVip.apply();;
-
+                pessoaController.limpar();
 
 
             }
@@ -125,13 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this, "Salvo : " + pessoa.toString(), Toast.LENGTH_LONG).show();
 
-                listaVip.putString("primeiroNome", pessoa.getPrimeiroNome());
-                listaVip.putString("sobrenome", pessoa.getSobreNome());
-                listaVip.putString("curso", pessoa.getCursoDesejado());
-                listaVip.putString("telefone", pessoa.getTelefoneDeContato());
-
-                listaVip.apply();
-
+                //manda pra controladora para salvar
                 pessoaController.salvar(pessoa);
             }
         });
