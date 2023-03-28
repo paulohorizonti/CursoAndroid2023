@@ -13,8 +13,12 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.List;
+
 import br.com.devandroid.paulo.applistacursos.R;
+import br.com.devandroid.paulo.applistacursos.controller.CursoController;
 import br.com.devandroid.paulo.applistacursos.controller.PessoaController;
+import br.com.devandroid.paulo.applistacursos.model.Curso;
 import br.com.devandroid.paulo.applistacursos.model.Pessoa;
 import br.com.devandroid.paulo.applistacursos.utils.MaskEditUtil;
 
@@ -23,8 +27,12 @@ public class MainActivity extends AppCompatActivity {
 
 
    PessoaController pessoaController;
+
+   CursoController cursoContrller;
     //objeto pessoa
     Pessoa pessoa;
+
+    List<Curso> listaDeCursos; //lista para receber o getlista do contrller
 
     String dadosPessoa;
 
@@ -47,7 +55,10 @@ public class MainActivity extends AppCompatActivity {
         //controller pessoa
         pessoaController = new PessoaController(MainActivity.this);
 
+       cursoContrller = new CursoController();
 
+        listaDeCursos =  cursoContrller.getListaDeCursos(); //aqui ele chama o metodo getlista e manda pra nossa lista no main
+        //agora pode ser mostradona view
 
         //instanciando o objto
         pessoa = new Pessoa();
