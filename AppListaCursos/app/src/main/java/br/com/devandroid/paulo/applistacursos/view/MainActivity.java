@@ -2,15 +2,14 @@ package br.com.devandroid.paulo.applistacursos.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.List;
 import br.com.devandroid.paulo.applistacursos.R;
 import br.com.devandroid.paulo.applistacursos.controller.CursoController;
 import br.com.devandroid.paulo.applistacursos.controller.PessoaController;
-import br.com.devandroid.paulo.applistacursos.model.Curso;
 import br.com.devandroid.paulo.applistacursos.model.Pessoa;
 import br.com.devandroid.paulo.applistacursos.utils.MaskEditUtil;
 
@@ -32,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     //objeto pessoa
     Pessoa pessoa;
 
-    List<Curso> listaDeCursos; //lista para receber o getlista do contrller
+    List<String> nomeDosCursos; //lista para receber o getlista do contrller
 
     String dadosPessoa;
 
@@ -41,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
     TextInputEditText edtSobrenomeAlterar;
     TextInputEditText edtCursoAlterar;
     TextInputEditText edtTelefoneAlterar;
+
+
+    Spinner spinner;
 
     Button btnLimpar;
     Button btnSalvar;
@@ -57,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
        cursoContrller = new CursoController();
 
-        listaDeCursos =  cursoContrller.getListaDeCursos(); //aqui ele chama o metodo getlista e manda pra nossa lista no main
+        nomeDosCursos =  cursoContrller.dadosParaSpiner(); //aqui ele chama o metodo getlista e manda pra nossa lista no main
         //agora pode ser mostradona view
 
         //instanciando o objto
@@ -77,9 +78,24 @@ public class MainActivity extends AppCompatActivity {
         edtTelefoneAlterar = (TextInputEditText) findViewById(R.id.edtTelefoneAlterar);
         edtCursoAlterar = (TextInputEditText) findViewById(R.id.edtCursoAlterar);
 
+        spinner = findViewById(R.id.spinner);
+
+
+
         btnSalvar = findViewById(R.id.btnSalvar);
         btnLimpar = findViewById(R.id.btnLimpar);
         btnFinalizar = findViewById(R.id.btnFinalizar);
+
+
+        //Adapter
+        //Layout
+        //Injetar o adpater ao spinner - a lista vai ser mostrada
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cursoContrller.dadosParaSpiner());
+
+        adapter.setDropDownViewResource(android.R.layout.activity_list_item);
+
+        spinner.setAdapter(adapter);
 
 
         //atribui o valor que veio no objeto pessoa aos elementos que compoe a tela
