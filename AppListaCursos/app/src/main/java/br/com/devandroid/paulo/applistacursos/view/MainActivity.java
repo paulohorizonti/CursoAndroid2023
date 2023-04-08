@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_spiner);
 
         //controller pessoa
         pessoaController = new PessoaController(MainActivity.this);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cursoContrller.dadosParaSpiner());
 
-        adapter.setDropDownViewResource(android.R.layout.activity_list_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
 
         spinner.setAdapter(adapter);
 

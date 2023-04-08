@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.MainActivity"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/txt_Titulo"
+        android:textSize="24sp"
+        android:textStyle="bold"
+         />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtNome"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNomeAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nome" />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtSobrenome"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtSobrenomeAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Sobrenome" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtCurso"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtCursoAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Curso Desejado" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtTelefone"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="phone"
+
+        tools:ignore="MissingConstraints">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtTelefoneAlterar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Telefone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/txtListaSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Lista de Cursos"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="10dp"
+         />
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <Button
+        android:id="@+id/btnLimpar"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="153dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="LIMPAR"
+
+         />
+
+    <Button
+        android:id="@+id/btnSalvar"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="164dp"
+        android:layout_height="49dp"
+
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="SALVAR"
+
+        tools:ignore="MissingConstraints" />
+</androidx.appcompat.widget.LinearLayoutCompat>
+    <Button
+        android:id="@+id/btnFinalizar"
+        style="@style/Widget.Material3.Button.ElevatedButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="8dp"
+        android:text="FINALIZAR"
+
+        />
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
