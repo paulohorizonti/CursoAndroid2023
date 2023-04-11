@@ -1,4 +1,4 @@
-package br.com.devandroid.paulo.applistacursos.model;
+package br.com.devandroid.paulo.appgaseta.model;
 
 public class Curso {
 

@@ -1,9 +1,9 @@
-package br.com.devandroid.paulo.applistacursos.controller;
+package br.com.devandroid.paulo.appgaseta.controller;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.devandroid.paulo.applistacursos.model.Curso;
+import br.com.devandroid.paulo.appgaseta.model.Curso;
 
 public class CursoController {
     private List listCursos; //objejo lista que sera preenchido

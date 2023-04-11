@@ -1,4 +1,4 @@
-package br.com.devandroid.paulo.applistacursos.view;
+package br.com.devandroid.paulo.appgaseta.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,11 +14,11 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.List;
 
-import br.com.devandroid.paulo.applistacursos.R;
-import br.com.devandroid.paulo.applistacursos.controller.CursoController;
-import br.com.devandroid.paulo.applistacursos.controller.PessoaController;
-import br.com.devandroid.paulo.applistacursos.model.Pessoa;
-import br.com.devandroid.paulo.applistacursos.utils.MaskEditUtil;
+import br.com.devandroid.paulo.appgaseta.R;
+import br.com.devandroid.paulo.appgaseta.controller.CursoController;
+import br.com.devandroid.paulo.appgaseta.controller.PessoaController;
+import br.com.devandroid.paulo.appgaseta.model.Pessoa;
+import br.com.devandroid.paulo.appgaseta.utils.MaskEditUtil;
 
 //classe que vai instaciar o xml do layout
 public class MainActivity extends AppCompatActivity {
