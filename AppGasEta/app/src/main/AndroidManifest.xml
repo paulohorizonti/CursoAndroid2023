@@ -12,10 +12,15 @@
         android:theme="@style/Theme.AppListaCursos"
         tools:targetApi="31">
         <activity
+            android:name=".view.GasEtaActivity"
+            android:exported="false"
+            android:label="@string/title_activity_gas_eta"
+            android:theme="@style/Theme.AppCompat.DayNight" />
+        <activity
             android:name=".view.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".view.GasEtaActivity"
+            android:name=".view.GasEtaActivity3"
             android:exported="false" />
         <activity
             android:name=".view.SplashActivity"
