@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,10 @@ public class GasEtaActivity extends AppCompatActivity {
     TextInputEditText edtMudarGasolina, edtMudarEtanol;
     Button btnCalcular, btnLimpar, btnSalvar, btnFinalizar;
 
+    //variaveis para pegar os valores
+    double precoGasolina;
+    double precoEtanol;
+    String recomendacao;
     TextView txtResultado;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,9 +48,33 @@ public class GasEtaActivity extends AppCompatActivity {
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              String resultado =   AppUtilGasEta.calcularMelhorOpcao(Double.valueOf(edtMudarGasolina.getText().toString()), Double.valueOf(edtMudarEtanol.getText().toString()));
-              txtResultado.setText(resultado);
 
+                boolean isDadosOk = true;
+
+               if(TextUtils.isEmpty(edtMudarGasolina.getText())){
+                   edtMudarGasolina.setError("* Obrigatório");
+                   edtMudarGasolina.requestFocus();
+                   isDadosOk = false;
+               }
+
+                if(TextUtils.isEmpty(edtMudarEtanol.getText())){
+                    edtMudarEtanol.setError("* Obrigatório");
+                    edtMudarEtanol.requestFocus();
+                    isDadosOk = false;
+                }
+
+                if(isDadosOk)
+                {
+                    String resultado =   AppUtilGasEta.calcularMelhorOpcao(Double.valueOf(edtMudarGasolina.getText().toString()), Double.valueOf(edtMudarEtanol.getText().toString()));
+                    txtResultado.setText(resultado);
+                }else {
+                    Toast.makeText(GasEtaActivity.this, "DADOS INVÁLIDOS, /n TENTE NOVAMENTE", Toast.LENGTH_LONG).show();
+
+                }
+
+/*
+
+*/
             }
         });
 
@@ -62,6 +91,11 @@ public class GasEtaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 txtResultado.setText("RESULTADO");
+                edtMudarGasolina.setText("");
+                edtMudarEtanol.setText("");
+                txtResultado.requestFocus();
+
+
             }
         });
 

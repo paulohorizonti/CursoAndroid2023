@@ -10,12 +10,32 @@ public class AppUtilGasEta {
     }
 
     public static String calcularMelhorOpcao(double gasolina, double etanol){
-        double precoIdeial = gasolina *0.70;
-
+        //mensagem de retorno
         String mensagemDeRetorno;
 
-        mensagemDeRetorno = (etanol <=precoIdeial) ? "ABASTECER COM ETANAOL":"ABASTECER COM GASOLINA";
 
+            double precoIdeial = gasolina *0.70;
+
+
+
+            //condicional
+            /**
+             if(etanol <=precoIdeial) //se for menor que o preõ ideal, ou igual
+             {
+             mensagemDeRetorno = "Abastecer com Etanol"; //lança essa mensagem
+
+             }else{
+             mensagemDeRetorno = "Abastecer com Gasolina"; //lança essa
+             }
+             **/
+
+            //SEIMPLIFICADA
+            mensagemDeRetorno = (etanol <=precoIdeial) ? "ABASTECER COM ETANAOL":"ABASTECER COM GASOLINA";
+
+
+
+
+        //Retorna
        return  mensagemDeRetorno;
 
     }
