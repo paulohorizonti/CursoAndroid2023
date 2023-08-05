@@ -1,8 +1,15 @@
 package br.com.devandroid.paulo.appgaseta.view;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -14,6 +21,7 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 
 import br.com.devandroid.paulo.appgaseta.R;
+import br.com.devandroid.paulo.appgaseta.controller.CombustivelController;
 import br.com.devandroid.paulo.appgaseta.model.Combustivel;
 import br.com.devandroid.paulo.appgaseta.util.AppUtilGasEta;
 
@@ -22,6 +30,7 @@ public class GasEtaActivity extends AppCompatActivity {
     Combustivel combustivelGsolina;
     Combustivel combustivelEtanol;
 
+    CombustivelController controller;
     TextInputEditText edtMudarGasolina, edtMudarEtanol;
     Button btnCalcular, btnLimpar, btnSalvar, btnFinalizar;
 
@@ -47,10 +56,11 @@ public class GasEtaActivity extends AppCompatActivity {
         btnLimpar = findViewById(R.id.btnLimpar);
         btnSalvar = findViewById(R.id.btnSalvar);
         btnFinalizar= findViewById(R.id.btnFinalizar);
-
+        controller = new CombustivelController(GasEtaActivity.this);
 
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint({"ResourceAsColor", "ResourceType"})
             @Override
             public void onClick(View v) {
 
@@ -78,8 +88,12 @@ public class GasEtaActivity extends AppCompatActivity {
 
                     String resultado =   AppUtilGasEta.calcularMelhorOpcao(precoGasolina, precoEtanol);
                     txtResultado.setText(resultado);
+
+                    btnSalvar.setEnabled(true);
                 }else {
                     Toast.makeText(GasEtaActivity.this, "DADOS INVÁLIDOS, /n TENTE NOVAMENTE", Toast.LENGTH_LONG).show();
+                    btnSalvar.setEnabled(false);
+
 
                 }
 
@@ -106,6 +120,10 @@ public class GasEtaActivity extends AppCompatActivity {
                 edtMudarEtanol.setText("");
                 txtResultado.requestFocus();
 
+                btnSalvar.setEnabled(false);
+
+                controller.limpar();
+
 
             }
         });
@@ -126,6 +144,10 @@ public class GasEtaActivity extends AppCompatActivity {
                 combustivelEtanol.setNomeCombustivel("ETANOL");
                 combustivelEtanol.setPrecoCombustivel(precoEtanol);
                 combustivelEtanol.setRecomendacao(AppUtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
+
+                controller.salvar(combustivelGsolina);
+                controller.salvar(combustivelEtanol);
+
 
             }
         });
