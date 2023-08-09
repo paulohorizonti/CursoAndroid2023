@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import br.com.devandroid.paulo.appgaseta.R;
+import br.com.devandroid.paulo.appgaseta.database.GasEtaDb;
 
 public class SplashActivity extends AppCompatActivity {
     public final int TIME_OUT_SPLASH = 5000;
@@ -23,6 +24,10 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                //criar a tabela
+                GasEtaDb db = new GasEtaDb(SplashActivity.this);
+
+
                 Intent telaPrincipal = new Intent(SplashActivity.this, GasEtaActivity.class);
                 startActivity(telaPrincipal);
                 finish();
