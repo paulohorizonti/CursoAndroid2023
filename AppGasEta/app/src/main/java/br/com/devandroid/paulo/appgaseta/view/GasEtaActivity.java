@@ -90,6 +90,8 @@ public class GasEtaActivity extends AppCompatActivity {
                     txtResultado.setText(resultado);
 
                     btnSalvar.setEnabled(true);
+                    Toast.makeText(GasEtaActivity.this, "HABILITOU O BOTAO", Toast.LENGTH_LONG).show();
+
                 }else {
                     Toast.makeText(GasEtaActivity.this, "DADOS INVÁLIDOS, /n TENTE NOVAMENTE", Toast.LENGTH_LONG).show();
                     btnSalvar.setEnabled(false);
@@ -146,7 +148,7 @@ public class GasEtaActivity extends AppCompatActivity {
                 combustivelEtanol.setRecomendacao(AppUtilGasEta.calcularMelhorOpcao(precoGasolina,precoEtanol));
 
                 controller.salvar(combustivelGsolina);
-                controller.salvar(combustivelEtanol);
+              //  controller.salvar(combustivelEtanol);
 
 
             }
