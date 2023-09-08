@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.util.List;
+
 import br.com.devandroid.paulo.appgaseta.R;
 import br.com.devandroid.paulo.appgaseta.controller.CombustivelController;
 import br.com.devandroid.paulo.appgaseta.model.Combustivel;
@@ -39,6 +41,8 @@ public class GasEtaActivity extends AppCompatActivity {
     double precoEtanol;
     String recomendacao;
     TextView txtResultado;
+
+    List<Combustivel> dados;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,13 +63,22 @@ public class GasEtaActivity extends AppCompatActivity {
         controller = new CombustivelController(GasEtaActivity.this);
 
 
+        dados = controller.getListaDeDados(); //busca na controladora
+
+        Combustivel objAlteracao = dados.get(1);
+        objAlteracao.setNomeCombustivel("*****GASOLINA***");
+        objAlteracao.setPrecoCombustivel(5.97);
+        objAlteracao.setRecomendacao("****ABASTECER COM GASILINA****");
+
+        //controller.alterar(objAlteracao);
+        controller.deletar(3);
+
+
+
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @SuppressLint({"ResourceAsColor", "ResourceType"})
             @Override
             public void onClick(View v) {
-
-
-
 
                 boolean isDadosOk = true;
 
@@ -126,6 +139,9 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 controller.limpar();
 
+                Toast.makeText(GasEtaActivity.this, "ELEMENTOS LIMPOS", Toast.LENGTH_LONG).show();
+
+
 
             }
         });
@@ -149,6 +165,15 @@ public class GasEtaActivity extends AppCompatActivity {
 
                 controller.salvar(combustivelGsolina);
               //  controller.salvar(combustivelEtanol);
+                txtResultado.setText("RESULTADO");
+                edtMudarGasolina.setText("");
+                edtMudarEtanol.setText("");
+                txtResultado.requestFocus();
+
+                btnSalvar.setEnabled(false);
+
+                controller.limpar();
+                Toast.makeText(GasEtaActivity.this, "REGISTRO SALVO", Toast.LENGTH_LONG).show();
 
 
             }

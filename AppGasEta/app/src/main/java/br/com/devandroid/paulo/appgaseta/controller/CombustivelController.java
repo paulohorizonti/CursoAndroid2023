@@ -7,7 +7,8 @@ import android.widget.Toast;
 import br.com.devandroid.paulo.appgaseta.database.GasEtaDb;
 import br.com.devandroid.paulo.appgaseta.model.Combustivel;
 import br.com.devandroid.paulo.appgaseta.view.GasEtaActivity;
-
+import java.util.ArrayList;
+import java.util.List;
 public class CombustivelController extends GasEtaDb {
 
     SharedPreferences preferences;
@@ -45,6 +46,33 @@ public class CombustivelController extends GasEtaDb {
 
 
 
+    }
+
+    //alterar
+    public void alterar(Combustivel combustivel)
+    {
+        ContentValues dados = new ContentValues();
+        dados.put("id", combustivel.getId());
+        dados.put("nomeDoCombustivel",combustivel.getNomeCombustivel());
+        dados.put("precoCombustivel",combustivel.getPrecoCombustivel());
+        dados.put("recomendacao", combustivel.getRecomendacao());
+
+        alterarObjeto("Combustivel", dados);
+
+
+
+
+    }
+
+    public void deletar(int id)
+    {
+        deletarObjeto("Combustivel", id);
+
+    }
+
+    public List<Combustivel> getListaDeDados()
+    {
+        return listarDados();
     }
 
     public void limpar()
